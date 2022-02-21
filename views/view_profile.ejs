@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("./partials/header.ejs",{title:"Profile Page"}) %>
+        <%- include("././partials/viewStyle.ejs") %>
+</head>
+
+<body>
+    <div class="container-fluid  ">
+        <div class="left-side shadow ">
+
+            <form action="/update" method="POST">
+                <div class="top-header">
+                    <h3 class="text-white text-center  pt-5
+                    " style="font-family: sans-serif;letter-spacing:2px; margin-top: 0rem;">🎭 Your Profile 🌈
+
+
+
+                    </h3>
+                    <img src="<%= image %> " width="200" height="210" border="2" style="border-radius: 15px;" class=""
+                        alt="<%= image %> ">
+                </div>
+            <!-- <form action="/update" method="POST" enctype="application/x-www-form-urlencoded"> -->
+
+
+                <div class="form-group group-data py-2">
+
+
+
+                    <!-- <h1><u>Basic Details</u></h1> -->
+                    <div class="basic-details">
+
+                        <div id="full_name1" class="form-group">
+
+                            <label for="name">Full Name</label> <input type="text" name="name" class="form-control "
+                                value=" <%= name %> " id="full_name" required disabled>
+                            <a class="btn btn-success btn-sm" onclick="fname()"><i class="fas fa-edit"></i></a>
+                        </div>
+
+
+                        <!-- <div id="fname">
+                            <label for="fname">Father's Name</label> <input type="text" name="fname"
+                                class="form-control" value=" father's name" id="father_name" required>
+
+                        </div> -->
+
+
+
+
+                        <!-- <div id="mname">
+                            <label for="mname">Mother's Name</label> <input type="text" name="mname"
+                                class="form-control" placeholder=" Mother's name" id="mother_name" required>
+                        </div> -->
+
+                        <div id="gender">
+                            <label for="gender">Gender</label>
+
+                            <div class="gender1">
+                                <div class="male">
+                                    <input type="text" name="gender" class="form-control" id="male"
+                                        value="<%= gender %> " required disabled>&nbsp;
+                                    <a onclick="gender()" class="btn btn-success btn-sm mt-2"><i
+                                            class="fas fa-edit"></i></a>
+
+                                </div>
+                                <!-- <div class="female">
+                                    <input type="radio" name="gender" class="" value="female" id="female"  required disabled
+                                        onblur="gender()">
+                                    &nbsp; Female
+                                </div>
+                                <small style="color: red;display: none;">choose your Gender</small> -->
+
+
+
+                            </div>
+                        </div>
+                        <div id="birth">
+                            <label for="birth">Date of Birth</label> <input type="text" name="birth"
+                                class="form-control" value=" <%= date %> " id="date_of_birth" required disabled>
+                            <a onclick="dateOfBirth()" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- <h1><u>Contact Details</u></h1> -->
+                    <div class="contact-details">
+                        <div class="area">
+                            <label for="">Address</label>
+                            <address>
+
+                                <textarea name="address" id="address" cols="30" rows="1" required disabled
+                                    value="<%= address %> "></textarea>
+                            </address>
+                            <a onclick="address1()" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                        </div>
+
+
+
+                        <div class="state">
+                            <label for="state">State</label> <input type="text" name="state" class="form-control"
+                                id="contact_state" value="<%= state %> " required disabled>
+                            <a onclick="state1()" class="btn btn-success btn-sm mt-3"><i class="fas fa-edit"></i></a>
+                        </div>
+
+                        <div class="city">
+
+                            <label for="city">City</label> <input type="text" name="city" class="form-control" id="city"
+                                value="<%= city %> " required disabled>
+                            <a onclick="city1()" class="btn btn-success btn-sm mt-3"><i class="fas fa-edit"></i></a>
+
+                        </div>
+
+                        <div class="pincode">
+
+                            <label for="pincode">Pincode </label> <input type="text" name="pincode" minlength="6"
+                                maxlength="6" id="pincode" class="form-control" value="<%= pincode %> " id="pincode"
+                                required disabled>
+                            <a onclick="pincode1()" class="btn btn-success btn-sm mt-3"><i class="fas fa-edit"></i></a>
+                        </div>
+
+                        <div class="phone">
+
+                            <label for="phone">Phone No</label> <input type="tel" name="phone" class="form-control"
+                                value="<%= phone %> " minlength="10" maxlength="10" id="phone_number" required disabled>
+                            <a onclick="phone1()" class="btn btn-success btn-sm mt-3"><i class="fas fa-edit"></i></a>
+                        </div>
+
+                        <div class="mobile">
+                            <label for="mobile">Mobile No</label> <input type="tel" name="mobile" class="form-control"
+                                value="<%= mobile %> " id="mobile_number" required disabled>
+                            <a onclick="mobile1()" class="btn btn-success btn-sm mt-3"><i class="fas fa-edit"></i></a>
+
+                        </div>
+
+                        <!-- <div class="email">
+                            <label for="email">Email</label> <input type="email" name="email" class="form-control"
+                                value=" email" id="email"  required disabled>
+                        </div> -->
+
+                    </div>
+                    <!-- <h1 style="margin-top: 1rem;"><u>About Yourself</u></h1> -->
+                    <div class="about-your-self">
+                        <textarea name="about" id="about" cols="30" rows="10" value="<%= about %> " style="width: 100%;"
+                            disabled></textarea>
+                        <a onclick="about1()" class="btn btn-success btn-sm mt-3"><i class="fas fa-edit"></i></a>
+
+
+                    </div>
+
+
+
+
+
+                    <!-- <h1 style="margin-top: 1rem;"><u>Upload Photos</u></h1> -->
+
+
+
+                    <!-- <div class="file">
+                        <label for="name">Photos</label> <input type="file" name="file" class="form-control"
+                            id="photos"  required disabled>
+                        <small style="color: red;display: block;">choose, file in pdf, jpeg format</small>
+                    </div> -->
+
+
+
+
+
+
+
+
+                </div>
+                <button type="submit" class="btn btn-success" id="submit"
+                    style="width: 100%;font-family: sans-serif;letter-spacing: 2px;">Update
+                    Changes
+                </button>
+
+
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+
+        function fname() {
+
+            const disabled = document.getElementById("full_name").disabled
+            if (disabled) {
+
+                document.getElementById("full_name").disabled = false
+            }
+            else {
+                document.getElementById("full_name").disabled = true
+
+
+            }
+
+        }
+
+        function gender() {
+            const disabled = document.getElementById("male").disabled
+            if (disabled) {
+                document.getElementById("male").disabled = false
+
+
+            }
+            else {
+                document.getElementById("male").disabled = true
+
+            }
+        }
+
+
+        function dateOfBirth() {
+            const disabled = document.getElementById("date_of_birth").disabled
+            if (disabled) {
+                document.getElementById("date_of_birth").disabled = false
+
+
+            }
+            else {
+                document.getElementById("date_of_birth").disabled = true
+
+            }
+        }
+
+
+        function address1() {
+            const disabled = document.getElementById("address").disabled
+            if (disabled) {
+                document.getElementById("address").disabled = false
+
+
+            }
+            else {
+                document.getElementById("address").disabled = true
+
+            }
+        }
+
+
+        function state1(e) {
+
+
+            const disabled = document.getElementById("contact_state").disabled
+            if (disabled) {
+                document.getElementById("contact_state").disabled = false
+
+
+            }
+            else {
+                document.getElementById("contact_state").disabled = true
+
+            }
+        }
+
+
+        function city1() {
+            const disabled = document.getElementById("city").disabled
+            if (disabled) {
+                document.getElementById("city").disabled = false
+
+
+            }
+            else {
+                document.getElementById("city").disabled = true
+
+            }
+        }
+
+
+        function pincode1() {
+            const disabled = document.getElementById("pincode").disabled
+            if (disabled) {
+                document.getElementById("pincode").disabled = false
+
+
+            }
+            else {
+                document.getElementById("pincode").disabled = true
+
+            }
+        }
+
+
+
+        function phone1() {
+            const disabled = document.getElementById("phone_number").disabled
+            if (disabled) {
+                document.getElementById("phone_number").disabled = false
+
+
+            }
+            else {
+                document.getElementById("phone_number").disabled = true
+
+            }
+        }
+        function mobile1() {
+            const disabled = document.getElementById("mobile_number").disabled
+            if (disabled) {
+                document.getElementById("mobile_number").disabled = false
+
+
+            }
+            else {
+                document.getElementById("mobile_number").disabled = true
+
+            }
+        }
+
+        function about1() {
+            const disabled = document.getElementById("about").disabled
+            if (disabled) {
+                document.getElementById("about").disabled = false
+
+
+            }
+            else {
+                document.getElementById("about").disabled = true
+
+            }
+        }
+
+//full_name
+//date_of_birth
+//address
+//contact_state
+//city
+//pincode
+//phone_number
+//mobile_number
+//about
+
+    </script>
+
+</body>
+
+</html>

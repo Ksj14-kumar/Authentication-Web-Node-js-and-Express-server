@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/header.ejs",{title:"UnAutherizaed Page"}) %>
+        <style>
+            .container-fluid {
+                height: 100vh;
+                text-align: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                background-color: maroon;
+                color: whitesmoke;
+
+            }
+
+            @media screen and (max-width:1100px) {
+                .container-fluid {
+                    flex-direction: column;
+                }
+
+            }
+
+            .angry {
+                font-size: 8rem;
+
+            }
+        </style>
+
+</head>
+
+<body>
+
+
+    <div class="container-fluid 
+    align-center">
+        <div class="emoji">
+            <h1 class="angry">
+                😠
+            </h1>
+        </div>
+
+        <div class="message">
+            <h1>
+                <i>
+                    <em>
+                        <tt>
+
+                            UnAutherization Access, please &nbsp;
+                        </tt>
+                    </em>
+                </i>
+            </h1>
+
+
+
+        </div>
+        <div class="login singup">
+            <h1>
+                <i>
+                    <em>
+                        <tt>
+                            <a href="/singin">
+                                login
+                            </a>
+                            and
+                            <a href="/singup">
+                                Singup
+                            </a>
+
+                        </tt>
+                    </em>
+                </i>
+            </h1>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

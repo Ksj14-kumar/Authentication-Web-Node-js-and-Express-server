@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("./partials/header.ejs",{title:"Contact Page"}) %>
+        <%- include("./partials/contactStyle.ejs") %>
+</head>
+
+
+
+<body>
+
+    <div class="container">
+        <div class="row row-class m-5 ">
+            <h1>Contact Info</h1>
+            <div class="col-md-5">
+                <div class="upper-contact-1">
+                    <div class="name-div">
+                        <label for="name">Name</label>
+                        <input type="text" disabled class="form-control" name="name" id="name1"
+                            placeholder="<%= name %> ">
+                    </div>
+                    <div class="email-div">
+                        <label for="email">Email</label>
+                        <input type="email" disabled class="form-control" name="email" id="email"
+                            placeholder="<%= email %> ">
+                    </div>
+                    <div class="website-div">
+                        <label for="website">Website</label>
+                        <input type="text" disabled class="form-control" name="website" id="website"
+                            placeholder="<%= website %> ">
+                    </div>
+                    <div class="mobile-div">
+                        <label for="mobile">Mobile No.</label>
+                        <input type="text" disabled class="form-control" name="mobile" id="mobile"
+                            placeholder="<%= mobile %> ">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-7 map">
+                <iframe id="frame" style="border:1px;width: 100%;height: 100%;" allowfullscreen="1"
+                    loading="lazy"></iframe>
+                <!-- "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3635689.793072721!2d80.8833819!3d27.141237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1643348763325!5m2!1sen!2sin" -->
+
+            </div>
+            <div class="col-md-12 bottom map ">
+                <div class="contact-icons">
+                    <div class="address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <address>
+                            <small>
+                                <%= address %>
+                            </small>
+                        </address>
+
+
+                    </div>
+                    <div class="phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="phone1">
+                            <small>
+                                <%= mobile %>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="email">
+                        <i class="fas fa-envelope"></i>
+                        <div class="mail">
+                            <small>
+                                <%= email.toLowerCase() %>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="website">
+                        <i class="fas fa-globe-asia"></i>
+
+                        <div class="web">
+                            <small>
+                                <%= website %>
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        navigator.geolocation.getCurrentPosition((pos) => {
+            document.getElementById("frame").src =`https://maps.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}&hl=es&z=14&amp;output=embed`
+            // console.log(pos.coords.latitude);
+            // console.log(pos.coords.longitude);
+
+        })
+    </script>
+
+
+
+
+
+</body>
+
+</html>

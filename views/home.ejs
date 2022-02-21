@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("./partials/header.ejs",{title:"Home Page"}) %>
+        <%- include("./partials/headerStyle.ejs") %>
+</head>
+
+<body>
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h1 class="navbar-brand mt-1" href="#" style="font-size: 1.5rem;">
+                <em>
+                    <i>
+                        <strong>Profiler.Com</strong>
+                    </i>
+                </em>
+            </h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item items">
+                        <a class="nav-link text-white" href="/about">About</a>
+                    </li>
+                    <li class="nav-item items">
+                        <a class="nav-link text-white" href="/contact">Contact</a>
+                    </li>
+
+                    <li class="nav-item items">
+                        <a class="nav-link text-white" href="/profile">Create Profile</a>
+                    </li>
+                    <li class="nav-item items view">
+                        <a class="nav-link text-white " href="/view_profile">View Profile</a>
+                    </li>
+
+                    <% if (logoutLogin) { %>
+
+                     
+                        <li class="nav-item items view">
+                            <form  method="GET" class="delete-form" style="">
+
+                                <a data-toggle="modal" data-target="#exampleModalCenter"
+                                class="mt-2"
+                                 style="cursor: pointer;text-decoration: none;color: whitesmoke;" href="/delete">Delete Account</a>
+
+
+
+
+                                <!-- Button trigger modal -->
+<!-- <a   data-toggle="modal" data-target="#exampleModalCenter"> -->
+    <!-- Delete Account -->
+<!-- </a> -->
+  
+ 
+
+                            </form>
+                        </li>
+                    <% } %>
+                </ul>
+
+                <div class="search-account-container">
+
+                    <% if (logoutLogin) { %>
+
+
+                        <div class="form">
+
+
+
+                            <form class="d-flex container12">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success  search-btn search text-white align-center"
+                                    type="submit">
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                        <% } %>
+
+
+
+
+                            <div class="account">
+
+                                <% if (logoutLogin) { %>
+
+
+                                    <a class="nav-link account  text-white btn btn-outline-warning  btn-sm "
+                                        href="/logout">logout</a>
+                                    <% } else{%>
+                                        <a class="nav-link account  text-white btn btn-outline-warning  btn-sm "
+                                            href="/singup">Create
+                                            Account</a>
+
+                                        <%} %>
+                            </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="main">
+
+        <img src="./background.jpg"
+            style="background-position: center; width: 100%;
+        background-repeat: no-repeat; background-size: cover;object-fit: cover;background-attachment: fixed;height: 100vh;" alt="" srcset="">
+
+
+    </div>
+
+
+    <!-- <div class="container-fluid image-container">
+        <main>
+
+            <img src="./image.jpg" alt="image" srcset="">
+        </main>
+    </div> -->
+
+     <!-- Modal -->
+
+     <form action="/delete" method="get">
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete Account Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <h3>
+                
+                Are you sure want to delete
+            </h3>
+        
+        </div>
+        <div class="modal-footer">
+            <form action="/" method="get">
+
+                <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+            </form>
+            <!-- <form action="/delete" method="GET"> -->
+
+                <a type="button" class="btn btn-danger" href="/delete">Yes</a>
+            <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+<%- include("./message.ejs") %> 
+
+
+
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            $('.navbar-toggler').click(function () {
+                $("#navbarSupportedContent").toggle("slow")
+            })
+
+
+        })
+
+        $(document).ready(function () {
+            if (window.outerWidth < 995) {
+                $("#navbarSupportedContent").hide()
+            }
+        })
+
+        window.onunload = function () {
+            document.cookie =
+                document.cookie = 'name=; expires=' + new Date(0).toUTCString();
+        }
+
+
+        // const view=document.getElementsByClassName("view")
+
+
+
+
+        window.onload = function () {
+            document.querySelector("body").style.backgroundImage = "background.jpg"
+        }
+
+
+        // document.addEventListener("contextmenu", (e) => {
+        //     e.preventDefault()
+        //     alert("This is not work")
+        // })
+
+
+
+    </script>
+
+</body>
+
+</html>

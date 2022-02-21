@@ -1,0 +1,281 @@
+<style>
+    * {
+        user-select: none;
+        /* color: rgb(0, 0, 0); */
+        color:white
+    }
+
+    body,
+        .btn-sm {
+
+            background-color: #1A1A40;
+        }
+
+        .btn-sm:hover {
+            background-color: rgba(70, 68, 68, 0.849);
+            /* color: red; */
+
+        }
+
+    .basic-details {
+        font-family: sans-serif;
+        letter-spacing: 2px;
+
+        /* background-color: red; */
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 2rem;
+        padding-bottom: 1rem;
+        line-height: 3rem;
+        color: whitesmoke;
+
+
+
+    }
+
+    .contact-details {
+        margin-top: 1rem;
+        /* background-color: green; */
+        color: white;
+        font-family: sans-serif;
+        letter-spacing: 2px;
+        line-height: 2rem;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 2rem 1rem;
+
+    }
+
+    .contact-details textarea {
+        resize: none;
+    }
+
+    #gender {
+        margin-left: 1.5rem;
+    }
+
+    .basic-details #gender .gender1 {
+        /* background-color: black; */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .education {
+        /* background-color: cadetblue; */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem 1rem;
+        margin-top: 1rem;
+
+    }
+
+    .education .details10 {
+        font-family: sans-serif;
+        letter-spacing: 2px;
+        /* background-color: blueviolet; */
+        display: grid;
+        color: whitesmoke;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem 1rem;
+    }
+
+    .intermediate .details12 {
+        font-family: sans-serif;
+        letter-spacing: 2px;
+        /* background-color: blueviolet; */
+        display: grid;
+        color: whitesmoke;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem 1rem;
+
+    }
+
+    .graduation .details13 {
+        font-family: sans-serif;
+        letter-spacing: 2px;
+        /* background-color: blueviolet; */
+        display: grid;
+        color: whitesmoke;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem 1rem;
+
+    }
+
+    .education h3 {
+        color: whitesmoke;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+    }
+
+    .company {
+        /* background-color: blueviolet; */
+        color: whitesmoke;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+        display: grid;
+        margin-top: 1rem;
+        line-height: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem 1rem;
+    }
+
+    .password-details {
+        /* background-color: rgb(2, 30, 37); */
+        color: whitesmoke;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+        display: grid;
+        margin-top: 1rem;
+        line-height: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem 1rem;
+
+    }
+
+    .file {
+        color: whitesmoke;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+        margin-bottom: 2rem;
+        width: 20%;
+
+    }
+
+    .about-your-self textarea {
+        resize: none;
+    }
+
+    .about-your-self {
+        margin-top: 1rem;
+
+    }
+
+    @media screen and ((min-width:470px) and (max-width:1250px)) {
+        form .basic-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        form .contact-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+
+        /* form .contact-details {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+            } */
+
+        form .education {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+    }
+
+    @media screen and (max-width:469px) {
+        form .basic-details {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        form .contact-details {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+
+        }
+
+        /* form .contact-details  {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+
+            } */
+
+        form .education {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        form .education .details10 {
+            grid-template-columns: repeat(1, 1fr);
+
+
+        }
+
+        form .education .details12 {
+            grid-template-columns: repeat(1, 1fr);
+
+
+
+        }
+
+        form .education .details13 {
+            grid-template-columns: repeat(1, 1fr);
+
+
+
+        }
+
+
+
+    }
+
+    @media screen and ((min-width:320px) and (max-width:544px)) {
+        form .company {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+
+        }
+
+    }
+
+    @media screen and (max-width:319px) {
+        form .company {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+
+
+        }
+
+        .file input {
+            font-size: 15px;
+            width: 5rem;
+            height: 2rem;
+        }
+
+    }
+
+
+    /* erro handling */
+
+    .error {
+        border-color: red;
+    }
+
+    .succes {
+        border-color: green;
+    }
+    .top-header{
+        display:flex;
+        justify-content:space-between;
+        
+    }
+    .top-header img{
+        margin-left:1rem;
+    }
+
+    input{
+        text-index:1rem
+    }
+
+    textarea{
+        color:black;
+    }
+</style>

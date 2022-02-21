@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("./partials/header.ejs",{title:"Login Page"}) %>
+        <%- include("./partials/loginStyle.ejs") %>
+</head>
+
+
+<body class="">
+
+
+    <div class="container-fluid  " style="background-color: #1A1A40;">
+
+        <div class="login-page shadow p-4">
+            <%- include("./message.ejs") %>
+
+                <form action="/login" method="POST" class="form-group" enctype="application/x-www-form-urlencoded"
+                    autocomplete="on">
+                    <div class="email">
+                        <label for="email"><i>Email</i></label>
+                        <input type="email" name="email" 
+                        placeholder="Email"
+                        class="form-control" id="email"
+                            value="<%= typeof email !='undefined'?email.trim():''.trim() %> ">
+                    </div>
+                    <div class="password">
+                        <label for="email"><i>Password</i></label>
+                        <input type="password" name="password" class="form-control"
+                        placeholder="Password"
+                         id="password"
+                            value="<%=typeof password !='undefined'?password.trim():''.trim() %> ">
+                    </div>
+
+                    <div class="btn-group  mt-3">
+
+                        <button type="submit" class="btn btn-success my-2" id="login" href="#">login</button>
+
+
+                        <a class="btn btn-success my-2" href="/singup">Sign Up</a>
+                        <!-- <a class="btn btn-success my-2" href="/google/login">With Google</a> -->
+                    </div>
+                </form>
+                <div class="recover-password">
+                    <form action="/updatepassword" method="GET">
+
+
+                        <em><strong>forget your password <a href="/updatepassword">Click here</a></strong></em>
+                    </form>
+                </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

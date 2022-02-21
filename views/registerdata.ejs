@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("./partials/header.ejs",{title:"Registration Page"}) %>
+
+
+        <%- include("./partials/registerStyle.ejs") %>
+
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-between px-5 py-4">
+        
+        <div class="left-side shadow ">
+            <%- include("./message.ejs") %>
+                <form action="/register" method="POST" class="form-group p-4 rounded"
+                    enctype="application/x-www-form-urlencoded">
+                    <div class="form-group py-2">
+                        <h3 class="text-white
+                        ">Create account</h3>
+                        <div id="name outer">
+                            <label for="name">Full Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Name" id="full_name"
+                                value="<%= typeof name != 'undefined' ? name.trim():"".trim() %> ">
+
+
+                        </div>
+                        <div id="email outer">
+
+                            <label for="name">Email</label> <input type="email" name="email" class="form-control"
+                            
+                                id="email1" value="<%=typeof email !='undefined' ?email.trim():"" %> ">
+
+                        </div>
+
+                        <div id="password outer">
+                            <label for="name">Passwpord</label> <input type="password" name="password"
+                                class="form-control" placeholder="password" id="password1"
+                                value="<%= typeof password !='undefined' ? password.trim():"" %> ">
+
+
+
+                        </div>
+
+                        <div id="cpassword outer">
+                            <label for="name">Confirm Password</label> <input type="password" name="cpassword"
+                                class="form-control" id="cpassword1" placeholder="Confirm password"
+                                value="<%= typeof cpassword !='undefined'? cpassword.trim() :"".trim()%> ">
+
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success" id="submit">Submit </button>
+                        <a href="/singin" class="btn btn-success">login </a>
+                        <a href="/" class="btn btn-success">Home </a>
+
+                        <!-- <a href="/google/login" class="btn btn-success">Google +</a> -->
+                    </div>
+                </form>
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

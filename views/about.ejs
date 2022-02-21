@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("./partials/header.ejs",{title:"About Page"}) %>
+        <%- include("./partials/aboutStyle.ejs") %>
+
+
+</head>
+
+
+<body>
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="heading">
+            <hr>
+            <p>MY STORY</p>
+            <hr>
+        </div>
+        <div class="story">
+
+            <p><i>
+                    <em>
+                        <%= about %>
+                    </em>
+                </i></p>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("./partials/header.ejs",{title:"Profile Page"}) %>
+        <%- include("././partials/profileStyle.ejs") %>
+</head>
+
+<body>
+
+    <body>
+        <div class="container-fluid  ">
+            <div class="left-side shadow ">
+                <h3 class="text-white text-center  pt-5
+                        " style="font-family: sans-serif;letter-spacing:2px; margin-top: 0rem;">🎭 Create account 🌈
+                </h3>
+                <form action="/uploaddata" id="form" method="POST" enctype="multipart/form-data"
+                    class="form-group p-4 rounded">
+                    <div class="form-group group-data py-2">
+
+
+
+                        <h1><u>Basic Details</u></h1>
+                        <div class="basic-details">
+
+                            <div id="full_name1" class="form-group">
+
+                                <label for="name">Full Name</label> <input type="text" name="name" class="form-control "
+                                    placeholder="Name" id="full_name" onblur="fname()" required>
+                                <small id="nameError" style="color: red;display: none;">not any special
+                                    character</small>
+                            </div>
+
+
+                            <!-- <div id="fname">
+                                <label for="fname">Father's Name</label> <input type="text" name="fname"
+                                    class="form-control" placeholder=" father's name" id="father_name" required>
+    
+                            </div> -->
+
+
+
+
+                            <!-- <div id="mname">
+                                <label for="mname">Mother's Name</label> <input type="text" name="mname"
+                                    class="form-control" placeholder=" Mother's name" id="mother_name" required>
+                            </div> -->
+
+                            <div id="gender">
+                                <label for="gender">Gender</label>
+
+                                <div class="gender1">
+                                    <div class="male">
+                                        <input type="radio" name="gender" value="male" class="" id="male" required
+                                            onblur="gender()">&nbsp;
+                                        Male
+                                    </div>
+                                    <div class="female">
+                                        <input type="radio" name="gender" class="" value="female" id="female" required
+                                            onblur="gender()">
+                                        &nbsp; Female
+                                    </div>
+                                    <small style="color: red;display: none;">choose your Gender</small>
+
+
+
+                                </div>
+                            </div>
+                            <div id="birth">
+                                <label for="birth">Date of Birth</label> <input type="text" name="birth"
+                                    class="form-control" placeholder="dd/mm/yyyy" id="date_of_birth" required
+                                    onblur="dateOfBirth()">
+                                <small id="dateError" style="color: red;display: none;">fill date of birth</small>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <h1><u>Contact Details</u></h1>
+                        <div class="contact-details">
+                            <div class="area">
+                                <address>
+                                    <label for="">Address</label>
+
+                                    <textarea name="address" id="address" onblur="address1()" cols="30" rows="1"
+                                        required placeholder="Address"></textarea>
+                                    <small id="addressError" style="color: red;display: none;">fill address</small>
+
+                                </address>
+                            </div>
+
+
+
+                            <div class="state">
+                                <label for="state">State</label> <input type="text" name="state" class="form-control"
+                                    id="contact_state" placeholder="State" onblur="state1()" required>
+                                <small id="stateError" style="color: red;display: none;">fill state</small>
+                            </div>
+
+                            <div class="city">
+
+                                <label for="city">City</label> <input type="text" name="city" class="form-control"
+                                    id="city" placeholder="City" required onblur="city1()">
+                                <small style="color: red;display: none;" id="cityError">fill City</small>
+
+                            </div>
+
+                            <div class="pincode">
+
+                                <label for="pincode">Pincode </label> <input type="text" name="pincode" minlength="6"
+                                    maxlength="6" onblur="pincode1()" class="form-control" placeholder="Pincode"
+                                    id="pincode" required>
+                                <small style="color: red;display: none;" id="pincodeError">fill correct pincode</small>
+                            </div>
+
+                            <div class="phone">
+
+                                <label for="phone">Phone No</label> <input type="tel" name="phone" class="form-control"
+                                    placeholder="Phone Number" minlength="10" maxlength="10" id="phone_number"
+                                    onblur="phone1()" required>
+                                <small id="phoneError" style="color: red;display: none;">correct phone No.</small>
+                            </div>
+
+                            <div class="mobile">
+                                <label for="mobile">Mobile No</label> <input type="tel" name="mobile"
+                                    class="form-control" placeholder="Mobile Numebr" id="mobile_number"
+                                    onblur="mobile1()" required>
+                                <small id="mobileError" style="color: red;display: none;">fill correct Mobile
+                                    no.</small>
+
+                            </div>
+
+                            <!-- <div class="email">
+                                <label for="email">Email</label> <input type="email" name="email" class="form-control"
+                                    placeholder=" email" id="email" required>
+                            </div> -->
+
+                        </div>
+                        <h1 style="margin-top: 1rem;"><u>About Yourself</u></h1>
+                        <div class="about-your-self">
+                            <textarea name="about" id="about" cols="30" rows="10" onblur="about1()"
+                                placeholder="Just Give me Something, About your self at least 250 words"
+                                style="width: 100%;"></textarea>
+
+                            <small id="aboutError" style="color: red;display: none;">fill about yourself in 250
+                                words</small>
+                        </div>
+
+
+
+
+
+                        <h1 style="margin-top: 1rem;"><u>Upload Photos</u></h1>
+
+
+
+                        <div class="file">
+                            <label for="name">Photos</label> <input type="file" name="file" class="form-control"
+                                id="photos" required>
+                            <small style="color: red;display: block;">choose, file in pdf, jpeg format</small>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+                    <button type="submit" class="btn btn-success  " id="submit"
+                        style="width: 100%;font-family: sans-serif;letter-spacing: 2px;" onclick="confirm()">Submit
+                    </button>
+
+
+                </form>
+            </div>
+            <!-- <div class="right-side py-3 w-50   align-content-center mt-5 ">
+                <div class="d-grid gap-2 ">
+                    <a class="btn btn-warning" href="/singin" type="button">Login</a>
+                    <a class="btn btn-primary" href="" type="button">login With Gmail</a>
+                </div>
+    
+            </div> -->
+        </div>
+
+        <script>
+
+            function fname(value) {
+
+                const full_name = document.getElementById("full_name")
+                const fullNameValue = full_name.value
+                const re = /[A-Za-z -']$/;
+                if (!re.test(fullNameValue)) {
+                    full_name.style.border = "2px solid red"
+                    document.getElementById("nameError").style.display = "block"
+                    return false
+
+
+
+                }
+
+
+                if (fullNameValue === "") {
+                    full_name.style.border = "2px solid red"
+                    document.getElementById("nameError").style.display = "block"
+                    return false
+                }
+                if (fullNameValue.length < 3) {
+                    alert("name can not be less than 3 character")
+                    full_name.style.border = "2px solid red"
+                }
+                else {
+                    full_name.style.border = "2px solid green"
+                    document.getElementById("nameError").style.display = "none"
+                }
+            }
+
+
+
+            //gender
+
+            function gender() {
+                const userGender = document.getElementById("input[type='radio']:checked")
+                if (!userGender.value) {
+                    alert("choose Gender")
+                    return false
+
+                }
+                else {
+                    return true
+                }
+            }
+
+
+            //DATE OF BIRTH
+            function dateOfBirth() {
+                const dob = document.getElementById("date_of_birth")
+                const reg = /^((0[1-9]|[12][0-9]|3[01])(\/)(0[13578]|1[02]))|((0[1-9]|[12][0-9])(\/)(02))|((0[1-9]|[12][0-9]|3[0])(\/)(0[469]|11))(\/)\d{4}$/;
+                if (!reg.test(dob.value)) {
+                    document.getElementById("dateError").style.display = "block"
+                    dob.style.border = "2px solid red"
+                    return false
+
+                }
+                else if (dob.value === "") {
+                    alert('fill date of birth')
+                    dob.style.border = "2px solid red"
+                    return false
+
+
+                }
+                else {
+                    document.getElementById("dateError").style.display = "none"
+                    dob.style.border = "2px solid green"
+                    return true
+
+                }
+
+            }
+
+
+            function address1() {
+                const address = document.getElementById("address")
+                if (address.value == "") {
+                    address.style.border = "2px solid red"
+                    document.getElementById("addressError").style.display = "block"
+                    return false
+                }
+                else {
+                    address.style.border = "2px solid green"
+                    document.getElementById("addressError").style.display = "none"
+                    return true
+
+                }
+            }
+
+
+            //state 
+            function state1() {
+                const st = document.getElementById("contact_state")
+                if (st.value == "") {
+                    st.style.border = "2px solid red"
+                    document.getElementById("stateError").style.display = "block"
+                    return false
+                }
+                else {
+                    st.style.border = "2px solid green"
+                    document.getElementById("stateError").style.display = "none"
+                    return true
+
+                }
+            }
+
+            //city
+
+            function city1() {
+                const ct = document.getElementById("city")
+                if (ct.value === "") {
+                    ct.style.border = "2px solid red"
+                    document.getElementById("cityError").style.display = "block"
+                    return false
+                }
+                else {
+                    ct.style.border = "2px solid green"
+                    document.getElementById("cityError").style.display = "none"
+                    return true
+
+                }
+
+
+            }
+
+
+
+            //pincode
+
+            function pincode1() {
+                const pincode = document.getElementById("pincode")
+                if (pincode.value === "") {
+                    document.getElementById("pincodeError").style.display = "block"
+                    pincode.style.border = "2px solid red"
+                    return false
+
+                }
+                else if (pincode.value.length > 6 || pincode.value.length < 6) {
+                    alert("invalid pincode")
+                    document.getElementById("pincodeError").style.display = "block"
+                    pincode.style.border = "2px solid red"
+                    return false
+
+                }
+
+                else {
+                    document.getElementById("pincodeError").style.display = "none"
+                    pincode.style.border = "2px solid green"
+                    return true
+
+                }
+            }
+
+            //PHONE NUMBER
+
+            function phone1() {
+                const phone = document.getElementById("phone_number")
+                if (phone.value == "") {
+                    phone.style.border = "2px solid red"
+                    document.getElementById("phoneError").style.display = "block"
+                    return false
+
+                }
+                else {
+                    var filter = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
+
+                    if (!filter.test(phone.value)) {
+                        phone.style.border = "2px solid red"
+                        document.getElementById("phoneError").style.display = "block"
+                        return false
+
+                    }
+                    else {
+                        phone.style.border = "2px solid green"
+                        document.getElementById("phoneError").style.display = "none"
+                        return true
+                    }
+
+
+                }
+
+            }
+
+
+
+
+            //MOBILE ERROR
+
+            function mobile1() {
+                const mb = document.getElementById("mobile_number")
+                if (mb.value == "") {
+                    mb.style.border = "2px solid red"
+                    document.getElementById("mobileError").style.display = "block"
+                    return false
+
+                }
+                else {
+                    var filter = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
+
+                    if (!filter.test(mb.value)) {
+                        phone.style.border = "2px solid red"
+                        document.getElementById("mobileError").style.display = "block"
+                        return false
+
+                    }
+                    else {
+                        mb.style.border = "2px solid green"
+                        document.getElementById("mobileError").style.display = "none"
+                        return true
+                    }
+
+                }
+            }
+
+
+
+            //ABOUT YOPURSELF
+
+            function about1() {
+                const ab = document.getElementById("about")
+                if (ab.value === "") {
+                    ab.style.border = "2px solid red"
+                    document.getElementById("aboutError").style.display = "block"
+                    return false
+
+                }
+                if (ab.value.length < 250) {
+                    ab.style.border = "2px solid red"
+                    document.getElementById("aboutError").style.display = "block"
+                    return false
+
+                }
+                else {
+                    ab.style.border = "2px solid green"
+                    document.getElementById("aboutError").style.display = "none"
+                    return true
+
+                }
+            }
+            window.onload = function () {
+                document.getElementById("full_name").value = ""
+                document.getElementById("date_of_birth").value = ""
+                document.getElementById("address").value = ""
+                document.getElementById("contact_state").value = ""
+                document.getElementById("city").value = ""
+                document.getElementById("pincode").value = ""
+                document.getElementById("phone_number").value = ""
+                document.getElementById("mobile_number").value = ""
+                document.getElementById("about").value = ""
+
+
+
+
+            }
+
+
+            function confirm() {
+                const bool = confirm("Are you sure want to submit. After submit you dont again create profile.")
+
+                if (bool) {
+
+                }
+                else {
+
+                }
+            }
+
+
+            //full_name
+            //date_of_birth
+            //address
+            //contact_state
+            //city
+            //pincode
+            //phone_number
+            //mobile_number
+            //about
+
+
+
+        </script>
+
+    </body>
+
+</html>
