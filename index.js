@@ -72,10 +72,7 @@ mongoose.connect(url, (err, result) => {
 
 
 
-
-app.get("/", (req, res) => {
-    res.send("<h1>Hello welcome to the heroku</h1>")
-})
+app.use("/", router)
 
 
 
